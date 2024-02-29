@@ -1,0 +1,69 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+
+{% block title %}
+INERGY
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+{% block nav%}
+<div class="topnav" id="osd-nav">
+  <a href="{% url 'index' %}"><img class="osd-logo" src="{% static 'main/inergy-logo.png' %}"></a>
+  <a href="javascript:void(0);" class="icon" onclick="drop()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+{% endblock %}
+
+{% block content%}
+<div class="osd-content-nav">
+  <p>HOME</p>
+  <p>|</p>
+  <p class="current">PREDICTIVE MAINTENANCE</p>
+</div>
+
+<div class="osd-content">
+  <form action="{% url 'index' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" onclick="loading()">
+  </form>
+</div>
+
+<div class="osd-content-view">
+  {{ collection }}
+  {{ df|safe }}
+</div>
+
+<div id="loading" class="osd-content-load">
+  <img src="{% static 'main/loading.gif' %}">
+</div>
+
+{% endblock %}
+
+{% block footer%}
+{% endblock %}
+
+{% block js %}
+<script>
+function loading() {
+  document.getElementById("loading").style.display = "block";
+}
+
+$(document).ready(function(){
+  document.getElementById("loading").style.display = "none";
+    });
+
+function drop() {
+  var x = document.getElementById("osd-nav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+{% endblock %}

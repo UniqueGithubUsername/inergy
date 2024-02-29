@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>
+  <!-- Base CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'main/base.css' %}">
+
+  <!-- Load an icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Don't forget to load jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <title>
+  {% block title %}
+  {% endblock %}
+  </title>
+</head>
+<body>
+
+{% block banner %}
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}
+
+
+{% block js %}
+{% endblock %}
+</body>
+</html>
